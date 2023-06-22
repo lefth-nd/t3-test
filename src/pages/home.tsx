@@ -47,7 +47,7 @@ async function fetchAvatar() {
   let url = "";
 
   try {
-    const response = await fetch("https://this-person-does-not-exist.com/en");
+    const response = await fetch("");
     const html = await response.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
