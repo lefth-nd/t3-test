@@ -8,8 +8,6 @@ export default function Next() {
     "flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]";
   const btn =
     "rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400 text-black";
-  const urlPath =
-    "https://github.com/lefth-nd/dbsb/raw/main/data/test14021.png";
   const bg = "m-5 rounded-sm border-2 border-solid text-center h-40 w-40 ";
   return (
     <div className=" bg-gradient-to-b from-[#2e026d] to-[#15162c]">
@@ -30,7 +28,7 @@ export default function Next() {
   );
 }
 
-function randomColor(bg: string) {
+function randomColor() {
   const randomcolor = Math.floor(Math.random() * Math.pow(2, 24) - 1).toString(
     16
   );
