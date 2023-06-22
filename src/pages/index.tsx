@@ -3,6 +3,7 @@ import Head from "next/head";
 import getTree from "~/server/bst";
 import { api } from "~/utils/api";
 import runProm from "~/server/other";
+import Link from "next/link";
 //import Link from "next/link";
 //import { text } from "stream/consumers";
 
@@ -65,7 +66,7 @@ export default function Home() {
             </p>
             <AuthShowcase />
             <div className="text-white">
-              <a href="/home">More!</a>
+              <Link href="/home">More!</Link>
             </div>
             <div className="grid grid-cols-2 grid-rows-1 gap-4">
               <div>
