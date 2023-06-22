@@ -10,22 +10,16 @@ export default function Next() {
     "rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400 text-black";
   const urlPath =
     "https://github.com/lefth-nd/dbsb/raw/main/data/test14021.png";
+  const bg = "m-5 rounded-sm border-2 border-solid text-center h-40 w-40 ";
   return (
     <div className=" bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       <Navbar />
       <div className="top-0"></div>
       <div className={main}>
-        <div className="m-5 rounded-sm border-2 border-solid border-white p-32 text-center">
+        <div id="image-bg" className={bg}>
           <div id="mid-text" className="text-white"></div>
-          <img
-            id="image-pfp"
-            alt="pfp"
-            src={urlPath}
-            width="120"
-            height="120"
-          />
         </div>
-        <button className={btn} onClick={() => void fetchAvatar()}>
+        <button className={btn} onClick={() => void randomColor(bg)}>
           click me!
         </button>
       </div>
@@ -36,6 +30,16 @@ export default function Next() {
   );
 }
 
+function randomColor(bg: string) {
+  const randomcolor = Math.floor(Math.random() * Math.pow(2, 24) - 1).toString(
+    16
+  );
+  const className = document.getElementById("image-bg");
+  const rc = "#" + randomcolor;
+  className?.setAttribute("style", "background-color: " + rc);
+}
+
+/* FOR LATER
 function randomNum() {
   const min = 10;
   const max = 1000;
@@ -44,21 +48,18 @@ function randomNum() {
 }
 
 async function fetchAvatar() {
+  interface Image {
+    url: string;
+  }
   let url = "";
 
   try {
     const response = await fetch("");
-    const html = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
-    const avatar = doc.getElementById("avatar");
-
-    if (avatar instanceof HTMLImageElement) {
-      url = avatar.src;
-    }
-    const urlToChange = document.getElementById("image-pfp");
-    urlToChange?.setAttribute("src", url);
+    const json = (await response.json()) as Image[];
+    const keys = Object.keys(json);
+    const randomIdx = Math.floor(Math.random() * keys.length);
   } catch (error) {
     console.log(error);
   }
 }
+  */
