@@ -4,6 +4,7 @@ import {
   publicProcedure,
   protectedProcedure,
 } from "~/server/api/trpc";
+import getTree from "~/server/bst";
 
 export const exampleRouter = createTRPCRouter({
   hello: publicProcedure
