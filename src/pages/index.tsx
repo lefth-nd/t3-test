@@ -1,10 +1,10 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
-import Link from "next/link";
 import getTree from "~/server/bst";
 import { api } from "~/utils/api";
 import runProm from "~/server/other";
-import { text } from "stream/consumers";
+//import Link from "next/link";
+//import { text } from "stream/consumers";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from Binary Search Tree" });
@@ -39,9 +39,11 @@ export default function Home() {
   }
 
   inserttextarea?.addEventListener("keyup", () =>
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     updateNodeValue(inserttextarea!)
   );
   removetextarea?.addEventListener("keyup", () =>
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     updateNodeValue(removetextarea!)
   );
 
@@ -79,6 +81,7 @@ export default function Home() {
                 <div className="p-5"></div>
                 <button
                   className="rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400"
+                  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                   onClick={() => set(getTextAreaValue(inserttextarea!))}
                 >
                   {insert}
@@ -98,6 +101,7 @@ export default function Home() {
                 <button
                   className="rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400"
                   onClick={() =>
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                     void removeNode(getTextAreaValue(removetextarea!))
                   }
                 >
@@ -145,6 +149,7 @@ function removeNode(value: number) {
 function searchTree(order: string) {
   const BSTree = getTree();
   const root = BSTree.traverse(BSTree.head, order);
+  console.log(root);
 }
 
 function set(value: number) {
@@ -175,11 +180,4 @@ function AuthShowcase() {
       </button>
     </div>
   );
-}
-
-function BinaryTree() {
-  const node_style =
-    "h-12 w-12 rounded-full bg-black text-center align-middle text-white";
-
-  return <div></div>;
 }
