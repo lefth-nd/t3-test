@@ -4,10 +4,15 @@ type ButtonClickHandler = () => void;
 
 interface GridProps {
   values: number[];
-  handleButton: ButtonClickHandler;
+  handleSortButton: ButtonClickHandler;
+  handleAddButton: ButtonClickHandler;
 }
 
-const Grid: React.FC<GridProps> = ({ values, handleButton }) => {
+const Grid: React.FC<GridProps> = ({
+  values,
+  handleSortButton,
+  handleAddButton,
+}) => {
   const length = values.length;
   const btn =
     "rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400";
@@ -27,9 +32,14 @@ const Grid: React.FC<GridProps> = ({ values, handleButton }) => {
         ))}
       </div>
       <div className="pt-10"></div>
-      <button className={btn} onClick={handleButton}>
-        Sort
-      </button>
+      <div className="flex justify-around">
+        <button className={btn} onClick={handleSortButton}>
+          Sort
+        </button>
+        <button className={btn} onClick={handleAddButton}>
+          Add to array
+        </button>
+      </div>
     </div>
   );
 };

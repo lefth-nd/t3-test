@@ -12,13 +12,14 @@ function swap(arr: (number|undefined)[], a: number, b:number){
 function sort(arr: number[]){
     let min = arr[0];
     for (let i = 0; i < arr.length-1; i++){
-        for (let j = i; j < arr.length; j++){
-            if (min === undefined){
-            }
-            else if (arr[j] < min){
-                swap(arr, i, j);
-                min = arr[j];
-            }
+        let minidx = i;
+        for (let j = i+1; j < arr.length; j++){
+            if (arr[j] < arr[minidx]){
+                minidx = j;
+            } 
+        }
+        if (minidx !== i){
+            swap(arr, i, minidx);
         }
     }
 }

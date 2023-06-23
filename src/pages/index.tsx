@@ -150,15 +150,29 @@ export default function Home() {
 }
 
 const GridComponent = () => {
-  const unsortedArray = [5, 2, 10] as number[];
+  const unsortedArray = [5, 2, 10, 9, 6, 4, 1, 7] as number[];
   const [value, setValue] = useState(unsortedArray);
+  const [newArr, setArray] = useState(unsortedArray);
 
-  const handleButton = () => {
+  const handleSortButton = () => {
     SelectionSort(unsortedArray);
     setValue(unsortedArray);
   };
 
-  return <Grid values={value} handleButton={handleButton} />;
+  const handleAddButton = () => {
+    console.log(unsortedArray);
+    const num = Math.floor(Math.random() * 20);
+    unsortedArray.push(num);
+    setArray(unsortedArray);
+  };
+
+  return (
+    <Grid
+      values={value}
+      handleSortButton={handleSortButton}
+      handleAddButton={handleAddButton}
+    />
+  );
 };
 
 function removeNode(value: number) {
