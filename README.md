@@ -9,7 +9,7 @@ Printing the tree only outputs to console.
 - [x] inorder
 - [x] postorder
 - [x] preorder
-- [ ] remove node
+- [x] remove node
 - [ ] graph instead of console.log()
 
 ### Other TODO:
