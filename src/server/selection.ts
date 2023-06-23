@@ -13,8 +13,12 @@ function sort(arr: number[]){
     for (let i = 0; i < arr.length-1; i++){
         let minidx = i;
         for (let j = i+1; j < arr.length; j++){
-            if (arr[j] < arr[minidx]){
-                minidx = j;
+            const a = arr[j];
+            const b = arr[minidx];
+            if (a !== undefined && b !== undefined){
+                if (a < b){
+                    minidx = j;
+                }
             }
         }
         if (minidx !== i){
