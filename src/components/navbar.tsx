@@ -188,8 +188,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-function displayMenu() {
-  console.log("bell");
-}
-
 export default Navbar;

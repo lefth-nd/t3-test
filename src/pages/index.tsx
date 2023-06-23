@@ -144,7 +144,9 @@ export default function Home() {
 
 function removeNode(value: number) {
   const BSTree = getTree();
-  console.log("node to remove", BSTree.find(BSTree.head, value));
+  console.log("node to remove", value);
+  BSTree.delete(value);
+  console.log(BSTree);
 }
 
 function searchTree(order: string) {
