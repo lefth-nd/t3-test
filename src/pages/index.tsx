@@ -117,20 +117,14 @@ export default function Home() {
             </div>
           </div>
           <div className="grid grid-cols-3 grid-rows-1 gap-4">
-            <button
-              className="rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400"
-              onClick={() => void searchTree("inorder")}
-            >
+            <button className={btn} onClick={() => void searchTree("inorder")}>
               {print}
             </button>
-            <button
-              className="rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400"
-              onClick={() => void searchTree("preorder")}
-            >
+            <button className={btn} onClick={() => void searchTree("preorder")}>
               {printpre}
             </button>
             <button
-              className="rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400"
+              className={btn}
               onClick={() => void searchTree("postorder")}
             >
               {printpost}
@@ -152,18 +146,16 @@ export default function Home() {
 const GridComponent = () => {
   const unsortedArray = [5, 2, 10, 9, 6, 4, 1, 7] as number[];
   const [value, setValue] = useState(unsortedArray);
-  const [newArr, setArray] = useState(unsortedArray);
-
-  const handleSortButton = () => {
-    SelectionSort(unsortedArray);
-    setValue(unsortedArray);
-  };
 
   const handleAddButton = () => {
     console.log(unsortedArray);
     const num = Math.floor(Math.random() * 20);
     unsortedArray.push(num);
-    setArray(unsortedArray);
+  };
+
+  const handleSortButton = () => {
+    SelectionSort(unsortedArray);
+    setValue(unsortedArray);
   };
 
   return (
