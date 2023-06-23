@@ -34,7 +34,7 @@ export default function Home() {
   let nodeValue: number;
   nodeValue = 0;
 
-  const temp_grid_values = [12, 8, 3, 4, 1, 9, 10, 23];
+  const temp_grid_values = [12, 8, 3, 4, 1, 9, 10];
 
   function getTextAreaValue(textarea: HTMLTextAreaElement): number {
     return parseInt(textarea.value);

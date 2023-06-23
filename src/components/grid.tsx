@@ -7,7 +7,10 @@ interface GridProps {
 const Grid: React.FC<GridProps> = ({ values }) => {
   const length = values.length;
   return (
-    <div className={`grid grid-cols-${length} grid-rows-1 gap-6`}>
+    <div
+      className={`grid`}
+      style={{ gridTemplateColumns: `repeat(${length}, 1fr)` }}
+    >
       {values.map((value, index) => (
         <div
           key={index}
