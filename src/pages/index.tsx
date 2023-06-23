@@ -2,8 +2,8 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import getTree from "~/server/bst";
 import { api } from "~/utils/api";
-import runProm from "~/server/other";
 import Link from "next/link";
+import Grid from "~/components/grid";
 //import Link from "next/link";
 //import { text } from "stream/consumers";
 
@@ -11,6 +11,8 @@ export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from Binary Search Tree" });
   const btn =
     "rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400";
+  const heading =
+    "text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]";
 
   let inserttextarea: HTMLTextAreaElement | null = null;
   let removetextarea: HTMLTextAreaElement | null = null;
@@ -30,6 +32,8 @@ export default function Home() {
   const printpre = "Print pre-order";
   let nodeValue: number;
   nodeValue = 0;
+
+  const temp_grid_values = [12, 8, 3, 4, 1, 9, 10, 23];
 
   function getTextAreaValue(textarea: HTMLTextAreaElement): number {
     return parseInt(textarea.value);
@@ -132,11 +136,10 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="border-white">
-          <button className={btn} onClick={() => void runProm("192.168.0.10")}>
-            Run
-          </button>
-        </div>
+        <div className="pt-10"></div>
+        <div className={heading}>Selection Sort</div>
+        <div className="pt-5"></div>
+        <Grid values={temp_grid_values} />
       </main>
     </>
   );
