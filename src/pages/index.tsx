@@ -4,6 +4,7 @@ import getTree from "~/server/bst";
 import { api } from "~/utils/api";
 import Link from "next/link";
 import Grid from "~/components/grid";
+import Footer from "~/components/footer";
 //import Link from "next/link";
 //import { text } from "stream/consumers";
 
@@ -140,7 +141,11 @@ export default function Home() {
         <div className={heading}>Selection Sort</div>
         <div className="pt-5"></div>
         <Grid values={temp_grid_values} />
+        <div className="pt-10"></div>
+        <button className={btn}>Sort</button>
+        <div className="pt-10"></div>
       </main>
+      <Footer />
     </>
   );
 }
