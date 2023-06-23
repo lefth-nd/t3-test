@@ -5,6 +5,8 @@ import { api } from "~/utils/api";
 import Link from "next/link";
 import Grid from "~/components/grid";
 import Footer from "~/components/footer";
+import SelectionSort from "~/server/selection";
+import { useState } from "react";
 //import Link from "next/link";
 //import { text } from "stream/consumers";
 
@@ -33,8 +35,6 @@ export default function Home() {
   const printpre = "Print pre-order";
   let nodeValue: number;
   nodeValue = 0;
-
-  const temp_grid_values = [12, 8, 3, 4, 1, 9, 10];
 
   function getTextAreaValue(textarea: HTMLTextAreaElement): number {
     return parseInt(textarea.value);
@@ -140,15 +140,26 @@ export default function Home() {
         <div className="pt-10"></div>
         <div className={heading}>Selection Sort</div>
         <div className="pt-5"></div>
-        <Grid values={temp_grid_values} />
+        <GridComponent />
         <div className="pt-10"></div>
-        <button className={btn}>Sort</button>
         <div className="pt-10"></div>
       </main>
       <Footer />
     </>
   );
 }
+
+const GridComponent = () => {
+  const unsortedArray = [5, 2, 10] as number[];
+  const [value, setValue] = useState(unsortedArray);
+
+  const handleButton = () => {
+    SelectionSort(unsortedArray);
+    setValue(unsortedArray);
+  };
+
+  return <Grid values={value} handleButton={handleButton} />;
+};
 
 function removeNode(value: number) {
   const BSTree = getTree();
