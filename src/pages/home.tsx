@@ -17,7 +17,7 @@ export default function Next() {
         <div id="image-bg" className={bg}>
           <div id="mid-text" className="text-white"></div>
         </div>
-        <button className={btn} onClick={() => void randomColor(bg)}>
+        <button className={btn} onClick={() => void randomColor()}>
           click me!
         </button>
       </div>
