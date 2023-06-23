@@ -1,4 +1,3 @@
-import { SP } from "next/dist/shared/lib/utils";
 
 class TreeNode {
     public data: number;
@@ -54,18 +53,20 @@ class BinarySearchTree {
                 console.log("deleting")
                 const node = current.left;
 
-                let sp = node;
-                let s = node.right;
+                let sp = node as TreeNode | undefined;
+                let s = node.right as TreeNode | undefined;
                 console.log(s?.left)
                 while(s?.left !== null){
                     sp = s;
                     s = s?.left;
                 }
 
-                if (sp !== node){
-                    sp.left = s.right;
-                }else {
-                    sp.right = s.right;
+                if (sp){
+                    if (sp !== node){
+                        sp.left = s.right;
+                    }else {
+                        sp.right = s.right;
+                    }
                 }
 
                 node.data = s?.data;
@@ -83,10 +84,14 @@ class BinarySearchTree {
                     s = s?.left;
                 }
 
-                if (sp !== node){
-                    sp.left = s.right;
-                }else {
-                    sp.right = s.right;
+                if (sp){
+                    if (sp !== node){
+                        sp.left = s.right;
+                    }else {
+                        sp.right = s.right;
+                    }
+                } else {
+                    console.log('error');
                 }
 
                 node.data = s?.data;
