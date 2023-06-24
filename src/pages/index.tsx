@@ -11,6 +11,8 @@ import { useState } from "react";
 //import { text } from "stream/consumers";
 
 export default function Home() {
+  const textareastyle =
+    "resize-none rounded-md bg-slate-950 p-0 py-2 text-center text-white";
   const hello = api.example.hello.useQuery({ text: "from Binary Search Tree" });
   const btn =
     "rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400";
@@ -144,18 +146,19 @@ export default function Home() {
 }
 
 const GridComponent = () => {
-  const unsortedArray = [5, 2, 10, 9, 6, 4, 1, 7] as number[];
-  const [value, setValue] = useState(unsortedArray);
+  //const unsortedArray = [5, 2, 10, 9, 6, 4, 1, 7] as number[];
+  const [value, setValue] = useState([2, 1]);
 
   const handleAddButton = () => {
-    console.log(unsortedArray);
-    const num = Math.floor(Math.random() * 20);
-    unsortedArray.push(num);
+    const dd = document.getElementById(
+      "selection-sort-array-value"
+    ) as HTMLTextAreaElement;
+    setValue([...value, parseInt(dd.value)]);
   };
 
   const handleSortButton = () => {
-    SelectionSort(unsortedArray);
-    setValue(unsortedArray);
+    SelectionSort(value);
+    setValue([...value]);
   };
 
   return (

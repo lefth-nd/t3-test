@@ -15,7 +15,9 @@ const Grid: React.FC<GridProps> = ({
 }) => {
   const length = values.length;
   const btn =
-    "rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400";
+    "m-3 rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400";
+  const textareastyle =
+    "resize-none rounded-md bg-slate-950 p-0 py-2 text-center text-white";
   return (
     <div className="flex-grow items-center justify-center text-center">
       <div
@@ -32,7 +34,12 @@ const Grid: React.FC<GridProps> = ({
         ))}
       </div>
       <div className="pt-10"></div>
-      <div className="flex justify-around">
+      <textarea
+        id="selection-sort-array-value"
+        className={textareastyle}
+        placeholder="0"
+      ></textarea>
+      <div className="">
         <button className={btn} onClick={handleSortButton}>
           Sort
         </button>
