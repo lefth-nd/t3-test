@@ -80,7 +80,7 @@ export default function Home() {
                 <div className="p-10"></div>
                 <textarea
                   id="insertNodeValue"
-                  className="resize-none rounded-md bg-slate-950 p-0 py-2 text-center text-white"
+                  className={textareastyle}
                   placeholder=""
                   title="node_value"
                 >
@@ -99,7 +99,7 @@ export default function Home() {
                 <div className="p-10"></div>
                 <textarea
                   id="removeNodeValue"
-                  className="resize-none rounded-md bg-slate-950 p-0 py-2 text-center text-white"
+                  className={textareastyle}
                   placeholder=""
                   title="node_value"
                 >
