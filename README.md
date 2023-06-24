@@ -17,3 +17,6 @@ Printing the tree only outputs to console.
 ### Other TODO:
 - figure out a button clicking feature
 - fix discord auth?
+
+### Sort TODO:
+- fix add to array button
