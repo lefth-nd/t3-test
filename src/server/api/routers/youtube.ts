@@ -1,12 +1,16 @@
 // Import the required modules
+import { z } from "zod";
 import { env } from "~/env.mjs";
 import { google } from "googleapis";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 // Load the client library and initialize the API
 export const Youtube = createTRPCRouter({
-  comment: publicProcedure.query(async () => {
-    const randomId = "Gsg1Xjd9Xx0";
+  comment: publicProcedure
+  .input(z.object({id: z.string()}))
+  .query(async ({input}) => {
+    console.log(input.id)
+    const randomId = input.id;
     const apiKey = env.YOUTUBE_API_KEY;
 
     const youtube = google.youtube({
@@ -34,7 +38,7 @@ export const Youtube = createTRPCRouter({
       "chart": "mostPopular",
       "maxResults": 1,
       "regionCode": "AU",
-      "videoCategoryId": "20" // gaming for now, make user selectable later
+      "videoCategoryId": "17" // gaming for now, make user selectable later
     })
     return response.data;
   })
