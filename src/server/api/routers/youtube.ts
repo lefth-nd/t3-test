@@ -16,12 +16,28 @@ export const Youtube = createTRPCRouter({
 
     const response = await youtube.commentThreads.list({
       part: ["snippet"],
-      maxResults: 1,
+      maxResults: 3,
       videoId: randomId,
     });
     console.log(response.data);
     return response.data;
   }),
+  video: publicProcedure.query(async () => {
+    const apiKey = env.YOUTUBE_API_KEY
+    const youtube = google.youtube({
+      version: "v3",
+      auth: apiKey,
+    })
+
+    const response = await youtube.videos.list({
+      "part": ["snippet"],
+      "chart": "mostPopular",
+      "maxResults": 1,
+      "regionCode": "AU",
+      "videoCategoryId": "20" // gaming for now, make user selectable later
+    })
+    return response.data;
+  })
 });
 
 //.data?.items[0]?.snippet?.topLevelComment?.snippet?.textDisplay;

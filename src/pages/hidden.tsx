@@ -7,7 +7,7 @@ export default function Hidden() {
           Title Me
         </h1>
         <h1 className="text-2xl font-medium tracking-tight text-white sm:text-[2rem]">
-          Guess the ? for this youtube comment.
+          Guess the ? for these youtube comments.
         </h1>
         <Game />
       </div>
