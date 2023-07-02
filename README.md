@@ -4,9 +4,10 @@
 
 This is a place where experiments exist.  
 So far there is a binary search tree.  
-Printing the tree only outputs to console.  
+Printing the tree only outputs to console.
 
 ### BST TODO:
+
 - [x] insert node
 - [x] inorder
 - [x] postorder
@@ -15,8 +16,11 @@ Printing the tree only outputs to console.
 - [ ] graph instead of console.log()
 
 ### Other TODO:
+
 - figure out a button clicking feature
 - fix discord auth?
 
 ### Sort TODO:
-- fix add to array button
+
+- [x] fix add to array button
+- [ ] visualise sort
