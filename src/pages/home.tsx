@@ -10,7 +10,7 @@ export default function Next() {
     "rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-purple-400 text-black";
   const bg = "m-5 rounded-sm border-2 border-solid text-center h-40 w-40 ";
   return (
-    <div className=" bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+    <div className=" bg-gradient-to-b from-[#206d02] to-[#15162c]">
       <Navbar />
       <div className="top-0"></div>
       <div className={main}>
