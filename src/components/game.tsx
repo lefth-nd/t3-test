@@ -30,13 +30,35 @@ function getComment() {
       comments.push(comment);
     });
   }
-  return comments;
+  return [comments, title];
 }
 
 export const Game = () => {
   const btn =
     "rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-red-900 hover:text-white";
-  const comment = getComment();
+  const heading =
+    "hidden text-2xl font-extrabold tracking-tight text-white sm:text-[2rem]";
+  const commentDetails = getComment();
+  const comment = commentDetails[0] as string[];
+  const answer = commentDetails[1];
+
+  const [title, setHeadingVisible] = useState(heading);
+
+  let textarea: HTMLTextAreaElement | null = null;
+
+  if (typeof window !== "undefined") {
+    textarea = document.getElementById("answer-title") as HTMLTextAreaElement;
+  }
+
+  textarea?.addEventListener("keydown", (event: KeyboardEvent) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      const visible_heading =
+        "text-2xl font-extrabold tracking-tight text-white sm:text-[2rem]";
+      setHeadingVisible(visible_heading);
+    }
+  });
+
   return (
     <div className="w-3/4 text-center">
       {comment.map((index) => (
@@ -48,7 +70,10 @@ export const Game = () => {
         </div>
       ))}
       <div className="text-center">
+        <h1 className={title}>{answer}</h1>
+        <div className="pb-6"></div>
         <textarea
+          id="answer-title"
           title="user_input"
           placeholder=""
           className="w-3/4 resize-none items-center rounded-lg  border-2 bg-transparent pt-6 text-center text-xl  font-medium text-white"
