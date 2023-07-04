@@ -38,11 +38,13 @@ export const Game = () => {
     "rounded-full bg-white px-10 py-3 font-semibold text-gray-800 no-underline transition hover:bg-red-900 hover:text-white";
   const heading =
     "hidden text-2xl font-extrabold tracking-tight text-white sm:text-[2rem]";
-  const commentDetails = getComment();
+  //const commentDetails = getComment();
+  const commentDetails = [0, []]; // under construction
   const comment = commentDetails[0] as string[];
   const answer = commentDetails[1];
 
-  const [title, setHeadingVisible] = useState(heading);
+  // const [title, setHeadingVisible] = useState(heading); // under construction
+  const title = "";
 
   let textarea: HTMLTextAreaElement | null = null;
 
@@ -55,20 +57,13 @@ export const Game = () => {
       event.preventDefault();
       const visible_heading =
         "text-2xl font-extrabold tracking-tight text-white sm:text-[2rem]";
-      setHeadingVisible(visible_heading);
+      //setHeadingVisible(visible_heading);
     }
   });
 
   return (
     <div className="w-3/4 text-center">
-      {comment.map((index) => (
-        <div
-          key={""}
-          className="h-32items-center mb-6 flex rounded-3xl bg-slate-200 p-8 align-middle font-bold shadow-lg shadow-zinc-950"
-        >
-          {index}
-        </div>
-      ))}
+      <div className="text-[3rem] text-white">⚠️ Under Construction ⚠️</div>
       <div className="text-center">
         <h1 className={title}>{answer}</h1>
         <div className="pb-6"></div>
