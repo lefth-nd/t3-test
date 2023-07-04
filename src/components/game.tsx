@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { api } from "~/utils/api";
 
 // TODO: need different way of getting random video id
@@ -6,8 +6,8 @@ import { api } from "~/utils/api";
 function getVID() {
   const { data } = api.youtube.video.useQuery();
   if (data?.items !== undefined) {
-    const v_id = data.items[0]?.id as string;
-    const snippet = data.items[0]?.snippet;
+    const v_id = data.items[2]?.id as string;
+    const snippet = data.items[2]?.snippet;
     const title = snippet?.title as string;
     return [v_id, title];
   } else {
