@@ -3,9 +3,9 @@ import { api } from "~/utils/api";
 
 // TODO: need different way of getting random video id
 
-function GetVID() {
+const GetVID = (id: number) => {
   const { data } = api.youtube.video.useQuery();
-  const [video_index_state, setVideoIndex] = useState(0);
+  const [video_index_state, setVideoIndex] = useState(id);
 
   const incrementVideoIndex = () => {
     setVideoIndex(video_index_state + 1);
@@ -15,19 +15,13 @@ function GetVID() {
     const v_id = data.items[video_index_state]?.id as string;
     const snippet = data.items[video_index_state]?.snippet;
     const title = snippet?.title as string;
-    console.log(video_index_state);
     return [v_id, title, incrementVideoIndex];
   } else {
     return [];
   }
-}
+};
 
-function getComment() {
-  const videoData = GetVID();
-  const video_id = videoData[0] as string;
-  const title = videoData[1];
-  console.log(title);
-  console.log(video_id);
+function getComment(video_id: string) {
   const { data } = api.youtube.comment.useQuery({ id: video_id });
   const comments = [] as string[];
   if (data?.items !== undefined) {
@@ -37,7 +31,7 @@ function getComment() {
       comments.push(comment);
     });
   }
-  return [comments, title];
+  return [comments];
 }
 
 export const Game = () => {
@@ -45,10 +39,13 @@ export const Game = () => {
     "hidden rounded-full bg-white px-10 ml-4 py-3 font-semibold text-gray-800 no-underline transition hover:bg-red-900 hover:text-white ";
   const heading =
     "hidden text-2xl font-extrabold tracking-tight text-white sm:text-[2rem]";
+  const videoData = GetVID(0);
+  const video_id = videoData[0] as string;
+  const answer = videoData[1] as string;
+  const incrementVideoIndex = videoData[2] as () => void;
 
-  const commentDetails = getComment();
+  const commentDetails = getComment(video_id);
   const comment = commentDetails[0] as string[];
-  const answer = commentDetails[1] as string;
 
   const [title, setHeadingVisible] = useState(heading);
   const [button_state, setButtonVisible] = useState(button);
@@ -61,6 +58,7 @@ export const Game = () => {
   const handleClick = () => {
     setHeadingVisible(heading);
     setButtonVisible(button);
+    incrementVideoIndex();
   };
 
   textarea?.addEventListener("keydown", (event: KeyboardEvent) => {

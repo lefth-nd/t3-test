@@ -36,7 +36,7 @@ export const Youtube = createTRPCRouter({
     const response = await youtube.videos.list({
       part: ["snippet"],
       chart: "mostPopular",
-      maxResults: 6,
+      maxResults: 22,
       regionCode: "AU",
       videoCategoryId: "20", // gaming for now, make user selectable later
     });
