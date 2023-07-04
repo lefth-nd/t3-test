@@ -10,7 +10,7 @@ export default function MainMenu() {
         <div className="flex flex-col items-center text-center">
           <h1 className={h1}>Welcome to the Testing Grounds</h1>
           <div className="p-8"></div>
-          <div className="space-y-10 text-left text-white">
+          <div className="space-y-10 text-left uppercase text-white">
             <div className="grid-flow-row-dense gap-2">
               <Image
                 alt="dsa-image"
@@ -35,6 +35,21 @@ export default function MainMenu() {
               <div className="py-2"></div>
               <Link href="/hidden" className="hover:underline">
                 <div className="sm:text-[2rem]">Title Me Game</div>
+              </Link>
+            </div>
+            <div className="grid-flow-row-dense gap-2">
+              <Image
+                alt="gpt-parse-image"
+                src="/gptp.png"
+                width={120}
+                height={120}
+              ></Image>
+              <div className="py-2"></div>
+              <Link
+                href="https://github.com/lefth-nd/gpt-parse"
+                className="hover:underline"
+              >
+                <div className="sm:text-[2rem]">GPT Parse</div>
               </Link>
             </div>
           </div>
