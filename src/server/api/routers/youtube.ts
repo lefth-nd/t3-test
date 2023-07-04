@@ -37,8 +37,6 @@ export const Youtube = createTRPCRouter({
       part: ["snippet"],
       chart: "mostPopular",
       maxResults: 22,
-      regionCode: "AU",
-      videoCategoryId: "20", // gaming for now, make user selectable later
     });
     return response.data;
   }),

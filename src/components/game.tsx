@@ -54,8 +54,10 @@ export const Game = () => {
   if (typeof window !== "undefined") {
     textarea = document.getElementById("answer-title") as HTMLTextAreaElement;
   }
+  const [text_value, setTextValue] = useState(" ");
 
   const handleClick = () => {
+    setTextValue(" ");
     setHeadingVisible(heading);
     setButtonVisible(button);
     incrementVideoIndex();
@@ -68,7 +70,6 @@ export const Game = () => {
       const visible_button = button.substring(6);
       setHeadingVisible(visible_heading);
       setButtonVisible(visible_button);
-      //set
     }
   });
 
@@ -91,7 +92,9 @@ export const Game = () => {
             title="user_input"
             placeholder=""
             className="relative w-3/6 resize-none items-center rounded-lg border-2 bg-transparent  pt-6 text-center text-xl font-medium text-white"
-          ></textarea>{" "}
+          >
+            {text_value}
+          </textarea>
           <button type="submit" className={button_state} onClick={handleClick}>
             New Game
           </button>
