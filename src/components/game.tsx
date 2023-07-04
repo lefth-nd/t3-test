@@ -6,8 +6,8 @@ import { api } from "~/utils/api";
 function getVID() {
   const { data } = api.youtube.video.useQuery();
   if (data?.items !== undefined) {
-    const v_id = data.items[2]?.id as string;
-    const snippet = data.items[2]?.snippet;
+    const v_id = data.items[3]?.id as string;
+    const snippet = data.items[3]?.snippet;
     const title = snippet?.title as string;
     return [v_id, title];
   } else {
