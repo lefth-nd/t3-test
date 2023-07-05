@@ -133,7 +133,6 @@ export default function Home() {
         <div className="pt-10"></div>
         <div className="pt-10"></div>
       </main>
-      <Footer />
     </>
   );
 }

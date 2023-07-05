@@ -17,44 +17,46 @@ export default function MainMenu() {
           </div>
           <div className="p-8"></div>
           <div className="mt-10 space-y-8 text-left uppercase text-white">
-            <div className="grid-flow-row-dense gap-2">
-              <Link href="/algorithms" className="hover:underline">
-                <Image
-                  className="rounded-full shadow-black grayscale filter hover:shadow-lg hover:filter-none"
-                  alt="dsa-image"
-                  src="/dsa-image.png"
-                  width={220}
-                  height={220}
-                ></Image>
-              </Link>
-              <div className="py-2"></div>
-            </div>
-            <div className="grid-flow-row-dense  gap-2">
-              <Link href="/hidden" className="hover:underline">
-                <Image
-                  className="rounded-full shadow-black grayscale filter hover:shadow-lg hover:filter-none"
-                  alt="title-me-image"
-                  src="/title-me-image.png"
-                  width={120}
-                  height={120}
-                ></Image>
-              </Link>
-              <div className="py-2"></div>
-            </div>
-            <div className="grid-flow-row-dense gap-2">
-              <Link
-                href="https://github.com/lefth-nd/gpt-parse"
-                className="hover:underline"
-              >
-                <Image
-                  className="rounded-full shadow-black grayscale filter hover:shadow-lg hover:filter-none"
-                  alt="gpt-parse-image"
-                  src="/gptp.png"
-                  width={120}
-                  height={120}
-                ></Image>
-              </Link>
-              <div className="py-2"></div>
+            <div className="flex items-center gap-4">
+              <div className="grid-flow-row-dense gap-2">
+                <Link href="/algorithms" className="hover:underline">
+                  <Image
+                    className="rounded-full shadow-black grayscale filter hover:shadow-lg hover:filter-none"
+                    alt="dsa-image"
+                    src="/dsa-image.png"
+                    width={320}
+                    height={320}
+                  ></Image>
+                </Link>
+                <div className="py-2"></div>
+              </div>
+              <div className="grid-flow-row-dense  gap-2">
+                <Link href="/hidden" className="hover:underline">
+                  <Image
+                    className="rounded-full shadow-black grayscale filter hover:shadow-lg hover:filter-none"
+                    alt="title-me-image"
+                    src="/title-me-image.png"
+                    width={220}
+                    height={220}
+                  ></Image>
+                </Link>
+                <div className="py-2"></div>
+              </div>
+              <div className="grid-flow-row-dense gap-2">
+                <Link
+                  href="https://github.com/lefth-nd/gpt-parse"
+                  className="hover:underline"
+                >
+                  <Image
+                    className="rounded-full shadow-black grayscale filter hover:shadow-lg hover:filter-none"
+                    alt="gpt-parse-image"
+                    src="/gptp.png"
+                    width={220}
+                    height={220}
+                  ></Image>
+                </Link>
+                <div className="py-2"></div>
+              </div>
             </div>
           </div>
         </div>
