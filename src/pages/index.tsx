@@ -16,12 +16,12 @@ export default function MainMenu() {
             </h2>
           </div>
           <div className="p-8"></div>
-          <div className="mt-10 space-y-8 text-left uppercase text-white">
-            <div className="flex items-center gap-4">
+          <div className="mt-10  text-left uppercase text-white">
+            <div className="items-center gap-4">
               <div className="grid-flow-row-dense gap-2">
                 <Link href="/algorithms" className="hover:underline">
                   <Image
-                    className="rounded-full shadow-black grayscale filter hover:shadow-lg hover:filter-none"
+                    className="rounded-full  shadow-black grayscale filter hover:shadow-lg hover:filter-none"
                     alt="dsa-image"
                     src="/dsa-image.png"
                     width={320}
@@ -30,10 +30,11 @@ export default function MainMenu() {
                 </Link>
                 <div className="py-2"></div>
               </div>
+              <div className=""></div>
               <div className="grid-flow-row-dense  gap-2">
                 <Link href="/hidden" className="hover:underline">
                   <Image
-                    className="rounded-full shadow-black grayscale filter hover:shadow-lg hover:filter-none"
+                    className="rounded-md shadow-black grayscale filter hover:shadow-lg hover:filter-none"
                     alt="title-me-image"
                     src="/title-me-image.png"
                     width={220}
