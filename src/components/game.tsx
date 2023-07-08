@@ -14,6 +14,7 @@ const GetVID = (id: number) => {
   if (data?.items !== undefined) {
     const v_id = data.items[video_index_state]?.id as string;
     const snippet = data.items[video_index_state]?.snippet;
+    console.log(video_index_state);
     const title = snippet?.title as string;
     return [v_id, title, incrementVideoIndex];
   } else {
