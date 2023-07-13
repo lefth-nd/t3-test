@@ -50,6 +50,7 @@ export const Topic: React.FC<OtherComponentProps> = ({
             placeholder="unit value"
             className="rounded-md text-center sm:w-20 lg:w-32"
             required
+            defaultValue={4.5}
           ></input>
           <button
             onClick={() => void IncrementArray(index)}

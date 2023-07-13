@@ -58,6 +58,7 @@ export default function Calculator() {
           <span className="font-bold">Withdraw Fail</span> 1.5
           <div className="ml-2 sm:ml-6"></div>
         </div>
+        <span className="">Default unit value 4.5</span>
         <div className="ml-10">
           <Topic
             unit_values={unit_values}
