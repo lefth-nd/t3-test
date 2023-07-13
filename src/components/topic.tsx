@@ -19,17 +19,23 @@ export const Topic: React.FC<OtherComponentProps> = ({
   const [topics, setTopics] = useState<number[]>([0]);
   const buttonStyle = "w-24 rounded-full bg-white shadow-md hover:bg-gray-200";
   function IncrementArray(value: number) {
-    setTopics((prevTopic) => [...prevTopic, 0]);
     const gv = document.getElementById(`gv-${value}`) as HTMLInputElement;
     const uv = document.getElementById(`uv-${value}`) as HTMLInputElement;
-    gv.setAttribute("disabled", "true");
-    uv.setAttribute("disabled", "true");
     const gv_value = parseFloat(gv.value);
+    console.log(gv_value);
     const uv_value = parseFloat(uv.value);
-    setGradeValues((pGV) => [...pGV, gv_value]);
-    setUnitValues((pUV) => [...pUV, uv_value]);
-    const button = document.getElementById(`button-${value}`);
-    button?.setAttribute("style", "display: none");
+
+    if (gv_value === 0) {
+      alert("Please select grade value.");
+    } else {
+      setTopics((prevTopic) => [...prevTopic, 0]);
+      gv.setAttribute("disabled", "true");
+      uv.setAttribute("disabled", "true");
+      setGradeValues((pGV) => [...pGV, gv_value]);
+      setUnitValues((pUV) => [...pUV, uv_value]);
+      const button = document.getElementById(`button-${value}`);
+      button?.setAttribute("style", "display: none");
+    }
   }
 
   return (

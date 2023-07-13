@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Topic } from "~/components/topic";
 import Image from "next/image";
 import Footer from "~/components/footer";
@@ -60,6 +60,7 @@ export default function Calculator() {
           <div className="ml-2 sm:ml-6"></div>
         </div>
         <span className="">Default unit value 4.5</span>
+        <span className="">Click add topic to confirm then calculate.</span>
         <div className="ml-10">
           <Topic
             unit_values={unit_values}
