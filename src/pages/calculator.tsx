@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Topic } from "~/components/topic";
 import Image from "next/image";
 import Footer from "~/components/footer";
@@ -34,8 +34,10 @@ export default function Calculator() {
     }
     if (gpa_text) gpa_text.innerHTML = " " + gpa;
   }
-  //bg-gradient-to-b from-[#15162c] to-[#000000]
-  //calculation grade_value[i] * unit_value[i] / sum of unit value
+
+  useEffect(() => {
+    document.title = "GPA Caclulator";
+  }, []);
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-blue-950 to-[#0d1532] text-white">
       <div className="grid grid-flow-col-dense items-end">
@@ -65,7 +67,8 @@ export default function Calculator() {
         </div>
         <span className="text-black">Default unit value 4.5</span>
         <span className="text-black">
-          Click add topic to confirm then calculate.
+          Click <span className="font-medium">add topic</span> to confirm then
+          calculate.
         </span>
         <div className="ml-10">
           <Topic
