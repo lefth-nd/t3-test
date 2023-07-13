@@ -17,6 +17,7 @@ export const Topic: React.FC<OtherComponentProps> = ({
   setGradeValues,
 }) => {
   const [topics, setTopics] = useState<number[]>([0]);
+  const buttonStyle = "w-24 rounded-full bg-white shadow-md hover:bg-gray-200";
   function IncrementArray(value: number) {
     setTopics((prevTopic) => [...prevTopic, 0]);
     const gv = document.getElementById(`gv-${value}`) as HTMLInputElement;
@@ -25,6 +26,8 @@ export const Topic: React.FC<OtherComponentProps> = ({
     const uv_value = parseFloat(uv.value);
     setGradeValues((pGV) => [...pGV, gv_value]);
     setUnitValues((pUV) => [...pUV, uv_value]);
+    const button = document.getElementById(`button-${value}`);
+    button?.setAttribute("style", "display: none");
   }
 
   return (
@@ -53,8 +56,10 @@ export const Topic: React.FC<OtherComponentProps> = ({
             defaultValue={4.5}
           ></input>
           <button
+            id={`button-${index}`}
             onClick={() => void IncrementArray(index)}
-            className="w-24 rounded-full bg-white shadow-md hover:bg-gray-200"
+            className={buttonStyle}
+            type="button"
           >
             add topic
           </button>

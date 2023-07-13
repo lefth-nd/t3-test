@@ -43,6 +43,17 @@ export const Links = () => {
             ></Image>
           </Link>
         </div>
+        <div className="grid-flow-row-dense gap-2">
+          <Link href="/calculator" className="hover:underline">
+            <Image
+              className="rounded-full shadow-black grayscale filter hover:shadow-lg hover:filter-none"
+              alt="gpa-calc-image"
+              src="/logo.png"
+              width={220}
+              height={220}
+            ></Image>
+          </Link>
+        </div>
       </div>
     </div>
   );
