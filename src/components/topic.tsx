@@ -40,7 +40,7 @@ export const Topic: React.FC<OtherComponentProps> = ({
             title="grade-value"
             type="number"
             placeholder="grade value"
-            className="rounded-md text-center"
+            className="rounded-md text-center sm:w-20 lg:w-32"
             required
           ></input>
           <input
@@ -48,7 +48,7 @@ export const Topic: React.FC<OtherComponentProps> = ({
             title="unit-value"
             type="number"
             placeholder="unit value"
-            className="rounded-md text-center"
+            className="rounded-md text-center sm:w-20 lg:w-32"
             required
           ></input>
           <button

@@ -1,6 +1,6 @@
-import Link from "next/link";
 import React, { useState } from "react";
 import { Topic } from "~/components/topic";
+import Image from "next/image";
 
 function reset() {
   window.location.href = window.location.href;
@@ -35,28 +35,36 @@ export default function Calculator() {
 
   //calculation grade_value[i] * unit_value[i] / sum of unit value
   return (
-    <div className="absolute flex h-full w-full justify-center bg-blue-950 text-white">
-      <div
-        id="title"
-        className="text-center text-[2rem] font-bold text-yellow-500 md:mt-60"
-      >
-        GPA Calculator
+    <main className="flex min-h-screen flex-col items-center justify-center bg-blue-950 text-white">
+      <div className="grid grid-flow-col-dense items-end">
+        <Image width={60} height={60} src="/logo.png" alt="logo"></Image>
+        <div
+          id="title"
+          className="text-center text-[3rem] font-extrabold tracking-tight text-yellow-500 md:mt-60"
+        >
+          GPA Calculator
+        </div>
       </div>
-      <div className="absolute top-1/3 w-full rounded-md bg-yellow-500 py-12 text-center text-slate-600 shadow-lg sm:left-1/3 sm:w-1/3">
-        <div className="px-10 font-bold text-black">Calculate your GPA!</div>
-        <div className="my-5"></div>
-        <div className="px-10 text-black">
-          High Distinction = 7; <br /> Distinction = 6; <br /> Credit = 5;{" "}
-          <br /> Pass = 4; <br />
-          Fail = 1.5; <br /> Withdraw Fail = 1.5
-          <div className="ml-2 sm:ml-6">
-            <Topic
-              unit_values={unit_values}
-              setUnitValues={setUnitValues}
-              grade_values={grade_values}
-              setGradeValues={setGradeValues}
-            />
-          </div>
+      <div className="flex flex-col items-center rounded-md bg-yellow-500 py-6 text-slate-600 shadow-lg sm:left-1/3 sm:w-1/3 md:left-1/4 md:w-1/2">
+        <div className="mb-6 text-[2rem] font-bold text-black">
+          Calculate your GPA!
+        </div>
+        <div className="grid grid-cols-2 gap-4 px-10 text-black">
+          <span className="font-bold">High Distinction</span> 7
+          <span className="font-bold">Distinction</span> 6
+          <span className="font-bold">Credit</span> 5
+          <span className="font-bold">Pass</span> 4
+          <span className="font-bold">Fail</span> 1.5
+          <span className="font-bold">Withdraw Fail</span> 1.5
+          <div className="ml-2 sm:ml-6"></div>
+        </div>
+        <div className="ml-10">
+          <Topic
+            unit_values={unit_values}
+            setUnitValues={setUnitValues}
+            grade_values={grade_values}
+            setGradeValues={setGradeValues}
+          />
         </div>
         <div className="mt-5">
           <div className="p-4">
@@ -82,6 +90,6 @@ export default function Calculator() {
           </span>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
