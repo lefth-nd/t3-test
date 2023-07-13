@@ -10,6 +10,7 @@ function reset() {
 export default function Calculator() {
   const [unit_values, setUnitValues] = useState<number[]>([]);
   const [grade_values, setGradeValues] = useState<number[]>([]);
+  const topic_number = grade_values.length;
   let gpa = "";
 
   function calculate() {
@@ -59,8 +60,10 @@ export default function Calculator() {
           <span className="font-bold">Withdraw Fail</span> 1.5
           <div className="ml-2 sm:ml-6"></div>
         </div>
-        <span className="">Default unit value 4.5</span>
-        <span className="">Click add topic to confirm then calculate.</span>
+        <span className="text-black">Default unit value 4.5</span>
+        <span className="text-black">
+          Click add topic to confirm then calculate.
+        </span>
         <div className="ml-10">
           <Topic
             unit_values={unit_values}
@@ -70,6 +73,9 @@ export default function Calculator() {
           />
         </div>
         <div className="mt-5">
+          <div className="text-center text-black">
+            Topics to calculate: {topic_number}
+          </div>
           <div className="p-4">
             <button
               onClick={calculate}
