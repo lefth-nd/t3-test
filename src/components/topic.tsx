@@ -40,14 +40,21 @@ export const Topic: React.FC<OtherComponentProps> = ({
           id="input-container"
           className="mt-5 grid grid-flow-row grid-cols-3 gap-2"
         >
-          <input
+          <select
             id={`gv-${index}`}
             title="grade-value"
-            type="number"
             placeholder="grade value"
             className="rounded-md text-center sm:w-20 lg:w-32"
             required
-          ></input>
+          >
+            <option value={0}>grade value: </option>
+            <option value={7}>HD</option>
+            <option value={6}>D</option>
+            <option value={5}>C</option>
+            <option value={4}>P</option>
+            <option value={1.5}>F</option>
+            <option value={1.5}>WF</option>
+          </select>
           <input
             id={`uv-${index}`}
             title="unit-value"
