@@ -94,8 +94,7 @@ export default function Calculator() {
       </div>
       <div className="my-2"></div>
       <div className="max-w-sm text-white">
-        Developer&apos;s note: topics must be added one by one and an extra
-        empty topic must be added at the end.
+        Developer&apos;s note: topics must be added one by one.
       </div>
       <div className="my-2"></div>
       <div className="">Follow the github link to contribute.</div>
