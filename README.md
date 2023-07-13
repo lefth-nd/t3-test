@@ -6,6 +6,8 @@
 
 ### TODO:
 
+Relevant files: src/pages/calculator.tsx, src/components/topic.tsx
+
 - [ ] allow 'enter' to submit
 - [ ] possibly update css
 - [ ] handle the array such that an empty topic doesn't need to be added at the end
