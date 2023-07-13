@@ -22,6 +22,8 @@ export const Topic: React.FC<OtherComponentProps> = ({
     setTopics((prevTopic) => [...prevTopic, 0]);
     const gv = document.getElementById(`gv-${value}`) as HTMLInputElement;
     const uv = document.getElementById(`uv-${value}`) as HTMLInputElement;
+    gv.setAttribute("disabled", "true");
+    uv.setAttribute("disabled", "true");
     const gv_value = parseFloat(gv.value);
     const uv_value = parseFloat(uv.value);
     setGradeValues((pGV) => [...pGV, gv_value]);
