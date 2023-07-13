@@ -36,7 +36,7 @@ export default function Calculator() {
   }
 
   useEffect(() => {
-    document.title = "GPA Caclulator";
+    document.title = "GPA Calculator";
   }, []);
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-blue-950 to-[#0d1532] text-white">
