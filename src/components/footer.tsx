@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
             </svg>
           </Link>
           <Link
-            href="https://www.github.com/lefth-nd"
+            href="https://github.com/lefth-nd/t3-test"
             className="text-neutral-800 dark:text-neutral-200"
           >
             <svg
