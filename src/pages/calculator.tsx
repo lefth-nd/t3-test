@@ -83,11 +83,11 @@ export default function Calculator() {
               Reset
             </button>
           </div>
-          <div className="my-5"></div>
         </div>
-        <div className="font-bold">
+        <div className="text-2xl font-bold">
           GPA:
           <span id="gpa" className="font-normal">
+            {" "}
             0.0
           </span>
         </div>
