@@ -33,10 +33,10 @@ export default function Calculator() {
     }
     if (gpa_text) gpa_text.innerHTML = " " + gpa;
   }
-
+  //bg-gradient-to-b from-[#15162c] to-[#000000]
   //calculation grade_value[i] * unit_value[i] / sum of unit value
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-blue-950 text-white">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-blue-950 to-[#0d1532] text-white">
       <div className="grid grid-flow-col-dense items-end">
         <Image width={60} height={60} src="/logo.png" alt="logo"></Image>
         <div
