@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="pt-9 ">
         <div className="mb-9 flex justify-center">
           <Link
-            href="www.linkedin.com/in/jayschuyler"
+            href="https://www.linkedin.com/in/jayschuyler"
             className="mr-9 text-neutral-800 dark:text-neutral-200"
           >
             <svg
@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
             </svg>
           </Link>
           <Link
-            href="www.github.com/lefth-nd"
+            href="https://www.github.com/lefth-nd"
             className="text-neutral-800 dark:text-neutral-200"
           >
             <svg
