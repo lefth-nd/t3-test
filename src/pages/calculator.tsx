@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Topic } from "~/components/topic";
 import Image from "next/image";
+import Footer from "~/components/footer";
 
 function reset() {
   window.location.href = window.location.href;
@@ -91,6 +92,14 @@ export default function Calculator() {
           </span>
         </div>
       </div>
+      <div className="my-2"></div>
+      <div className="max-w-sm text-white">
+        Developer&apos;s note: topics must be added one by one and an extra
+        empty topic must be added at the end.
+      </div>
+      <div className="my-2"></div>
+      <div className="">Follow the github link to contribute.</div>
+      <Footer />
     </main>
   );
 }
