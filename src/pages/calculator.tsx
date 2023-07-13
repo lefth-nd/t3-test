@@ -48,8 +48,11 @@ export default function Calculator() {
         </div>
       </div>
       <div className="flex flex-col items-center rounded-md bg-yellow-500 py-6 text-slate-600 shadow-lg sm:left-1/3 sm:w-1/3 md:left-1/4 md:w-1/2">
-        <div className="mb-6 text-[2rem] font-bold text-black">
+        <div className="text-[2rem] font-bold text-black">
           Calculate your GPA!
+        </div>
+        <div className="text-medium mb-4 italic text-gray-700">
+          GPA: Gyrating Positional Attributes
         </div>
         <div className="grid grid-cols-2 gap-4 px-10 text-black">
           <span className="font-bold">High Distinction</span> 7
