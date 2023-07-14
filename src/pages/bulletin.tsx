@@ -32,9 +32,9 @@ export default function Bulletin() {
   let timeDifMins;
 
   if (wisdom_update !== undefined) {
-    const timeDays = wisdom_update.getDay() as number;
-    const timeHours = wisdom_update.getHours() as number;
-    const timeMins = wisdom_update.getMinutes() as number;
+    const timeDays = wisdom_update.getDay();
+    const timeHours = wisdom_update.getHours();
+    const timeMins = wisdom_update.getMinutes();
     timeDifDays = currentUTCDays - timeDays;
     timeDifHours = currentUTCHours - timeHours;
     timeDifMins = currentUTCMins - timeMins;
