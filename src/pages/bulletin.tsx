@@ -1,3 +1,4 @@
+import { BulletinRoute } from "~/server/api/routers/bulletin";
 export default function Bulletin() {
   const time = 0;
   return (
