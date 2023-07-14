@@ -1,11 +1,12 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 export function middleware() {
   const response = NextResponse.next();
+  const time = new Date();
+  const now = time.getTime();
   response.cookies.set({
     name: "hi",
     value: "akljsdfjaskljdlfkasd",
-    expires: 200000,
   });
   return response;
 }

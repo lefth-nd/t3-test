@@ -2,16 +2,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { api } from "~/utils/api";
-import { middleware } from "~/server/middleware";
+import Footer from "~/components/footer";
+import { NextRequest } from "next/server";
+import { getSession } from "next-auth/react";
 
 function Pass() {
   console.log("pass...");
 }
 
 export default function Bulletin() {
-  const cookie = middleware();
-  console.log(cookie);
-
   const d = api.bulletin.getAll.useMutation();
 
   function Replace() {
@@ -25,7 +24,6 @@ export default function Bulletin() {
 
   const currentTime = new Date();
   const wisdom_update = wisdom_data.data?.updatedAt;
-  console.log(wisdom_update);
   const currentUTCDays = currentTime.getDay();
   const currentUTCHours = currentTime.getHours();
   const currentUTCMins = currentTime.getMinutes();
@@ -85,6 +83,7 @@ export default function Bulletin() {
           replace
         </button>
       </div>
+      <Footer />
     </div>
   );
 }
