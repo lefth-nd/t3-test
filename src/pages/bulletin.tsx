@@ -3,7 +3,7 @@ export default function Bulletin() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#205bff] to-[#205baa] font-title text-white">
       <div className="m-5 text-[3rem] font-extrabold tracking-tight text-white">
-        Replace or <span className="text-black">Pass?</span>
+        Pass or <span className="text-black">Replace?</span>
       </div>
       <div className=" m-5 text-center text-sm italic tracking-tight">
         Deface the current bulletin message with your own words of wisdom?
@@ -15,26 +15,24 @@ export default function Bulletin() {
         Bulletin message last changed: {time} ago
       </div>
 
-      <div className="h-fit w-1/2 rounded-md border-2 border-solid border-white bg-black text-white">
-        <div className="m-12 text-justify">
+      <div className="h-fit w-1/2 rounded-md border-2 border-solid border-white bg-black/10 text-white">
+        <div className="m-12 text-justify text-xs md:text-lg">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum
-          cupiditate animi sunt! Eos, dolore perspiciatis quos cum qui veniam
-          totam atque maiores numquam, possimus, deleniti illo voluptas
-          officiis. Recusandae, ducimus!
+          cupiditate animi sunt! Eos, dolore perspiciatis quos
         </div>
       </div>
       <div className="my-10 w-96 text-center">
         <input
-          className="w-100% h-12 rounded-lg bg-slate-200 px-6 text-lg font-bold text-black shadow-inner shadow-lg shadow-slate-950"
+          className="w-100% h-12 rounded-lg bg-slate-200 px-6 text-lg font-bold text-black shadow-inner shadow-slate-950"
           placeholder=""
-          title="final-text"
+          title="your message"
           maxLength={120}
         ></input>
         <button className="ml-4 mt-4 h-12 w-24 rounded-full bg-slate-900 font-bold uppercase shadow-md transition-colors duration-100 hover:bg-slate-800">
-          replace
+          pass
         </button>
         <button className="ml-4 mt-4 h-12 w-24 rounded-full bg-slate-900 font-bold uppercase shadow-md transition-colors duration-100 hover:bg-slate-800">
-          pass
+          replace
         </button>
       </div>
     </div>
