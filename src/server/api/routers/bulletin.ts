@@ -1,12 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { prisma } from "~/server/db";
 
 export const BulletinRoute = createTRPCRouter({
   getAll: publicProcedure
-    .input(z.object({ text: z.string() }))
+    .input(z.object({ text: z.string() }) as z.Schema<{ text: string }>)
     .mutation(async ({ input }) => {
-      return await prisma.post.create({
+      await prisma.post.create({
         data: {
           contents: input.text,
         },
