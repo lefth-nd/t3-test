@@ -1,10 +1,8 @@
 import { signIn, signOut, useSession } from "next-auth/react";
-import Head from "next/head";
 import getTree from "~/server/bst";
 import { api } from "~/utils/api";
 import Link from "next/link";
 import Grid from "~/components/grid";
-import Footer from "~/components/footer";
 import SelectionSort from "~/server/selection";
 import { useState } from "react";
 
