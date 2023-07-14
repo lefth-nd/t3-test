@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { api } from "~/utils/api";
 import { middleware } from "~/server/middleware";
@@ -22,15 +24,24 @@ export default function Bulletin() {
   const wisdom = wisdom_data.data?.contents as string;
 
   const currentTime = new Date();
-  const currentUTCDays = currentTime.getUTCDay();
-  const currentUTCHours = currentTime.getUTCHours();
-  const currentUTCMins = currentTime.getUTCMinutes();
-  const timeDays = wisdom_data.data?.updatedAt.getUTCDay() as number;
-  const timeHours = wisdom_data.data?.updatedAt.getUTCHours() as number;
-  const timeMins = wisdom_data.data?.updatedAt.getUTCMinutes() as number;
-  const timeDifDays = currentUTCDays - timeDays;
-  const timeDifHours = currentUTCHours - timeHours;
-  const timeDifMins = currentUTCMins - timeMins;
+  const wisdom_update = wisdom_data.data?.updatedAt;
+  console.log(wisdom_update);
+  const currentUTCDays = currentTime.getDay();
+  const currentUTCHours = currentTime.getHours();
+  const currentUTCMins = currentTime.getMinutes();
+
+  let timeDifDays;
+  let timeDifHours;
+  let timeDifMins;
+
+  if (wisdom_update !== undefined) {
+    const timeDays = wisdom_update.getDay() as number;
+    const timeHours = wisdom_update.getHours() as number;
+    const timeMins = wisdom_update.getMinutes() as number;
+    timeDifDays = currentUTCDays - timeDays;
+    timeDifHours = currentUTCHours - timeHours;
+    timeDifMins = currentUTCMins - timeMins;
+  }
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#205bff] to-[#205baa] font-title text-white">
@@ -44,12 +55,13 @@ export default function Bulletin() {
       </div>
 
       <div className="m-5">
-        <span className="font-bold">Bulletin message last changed:</span>{" "}
+        <span className="font-bold">📌 Bulletin message last changed:</span>{" "}
         {timeDifDays} d {timeDifHours} hr {timeDifMins} mins ago
       </div>
-
-      <div className="h-fit w-1/2 rounded-md border-2 border-solid border-white bg-black/10 text-white">
-        <div className="m-12 text-justify text-xs md:text-lg">{wisdom}</div>
+      <div className="flex">
+        <div className="h-fit rounded-md border-2 border-solid border-white bg-black/10 px-12 text-white">
+          <div className="my-12 text-center text-2xl">{wisdom}</div>
+        </div>
       </div>
       <div className="my-10 w-96 text-center">
         <input
