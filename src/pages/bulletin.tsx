@@ -3,14 +3,21 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { api } from "~/utils/api";
 import Footer from "~/components/footer";
-import { NextRequest } from "next/server";
-import { getSession } from "next-auth/react";
+import { createId } from "@paralleldrive/cuid2";
 
 function Pass() {
   console.log("pass...");
 }
 
 export default function Bulletin() {
+  if (typeof window !== "undefined") {
+    if (!window.localStorage.getItem("hello")) {
+      const id = createId();
+      window.localStorage.setItem("hello", id);
+    }
+  } else {
+    console.log("hi");
+  }
   const d = api.bulletin.getAll.useMutation();
 
   function Replace() {
@@ -34,7 +41,6 @@ export default function Bulletin() {
     const t = wisdom_update.getTime();
     const timeDif = now - t;
     const timeDifConvHrs = timeDif / 1000 / 3600;
-    console.log(timeDifConvHrs);
     days = Math.floor(timeDifConvHrs / 24);
     hours = Math.floor(timeDifConvHrs);
     minutes = (((timeDifConvHrs * 1000) % 1000) * 60) / 1000;
