@@ -23,22 +23,22 @@ export default function Bulletin() {
   const wisdom = wisdom_data.data?.contents as string;
 
   const currentTime = new Date();
+  const now = currentTime.getTime();
   const wisdom_update = wisdom_data.data?.updatedAt;
-  const currentUTCDays = currentTime.getDay();
-  const currentUTCHours = currentTime.getHours();
-  const currentUTCMins = currentTime.getMinutes();
 
-  let timeDifDays;
-  let timeDifHours;
-  let timeDifMins;
-
+  let days;
+  let hours;
+  let minutes;
+  let fminutes;
   if (wisdom_update !== undefined) {
-    const timeDays = wisdom_update.getDay();
-    const timeHours = wisdom_update.getHours();
-    const timeMins = wisdom_update.getMinutes();
-    timeDifDays = currentUTCDays - timeDays;
-    timeDifHours = currentUTCHours - timeHours;
-    timeDifMins = currentUTCMins - timeMins;
+    const t = wisdom_update.getTime();
+    const timeDif = now - t;
+    const timeDifConvHrs = timeDif / 1000 / 3600;
+    console.log(timeDifConvHrs);
+    days = Math.floor(timeDifConvHrs / 24);
+    hours = Math.floor(timeDifConvHrs);
+    minutes = (((timeDifConvHrs * 1000) % 1000) * 60) / 1000;
+    fminutes = Math.floor(minutes);
   }
 
   return (
@@ -54,7 +54,7 @@ export default function Bulletin() {
 
       <div className="m-5">
         <span className="font-bold">📌 Bulletin message last changed:</span>{" "}
-        {timeDifDays} d {timeDifHours} hr {timeDifMins} mins ago
+        {days} d {hours} hr {fminutes} mins ago
       </div>
       <div className="flex">
         <div className="h-fit rounded-md border-2 border-solid border-white bg-black/10 px-12 text-white">
