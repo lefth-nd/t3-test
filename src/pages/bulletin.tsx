@@ -50,7 +50,7 @@ export default function Bulletin() {
     const timeDif = now - t;
     const timeDifConvHrs = timeDif / 1000 / 3600;
     days = Math.floor(timeDifConvHrs / 24);
-    hours = Math.floor(timeDifConvHrs);
+    hours = Math.floor(timeDifConvHrs) % 24;
     minutes = (((timeDifConvHrs * 1000) % 1000) * 60) / 1000;
     fminutes = Math.floor(minutes);
   }
