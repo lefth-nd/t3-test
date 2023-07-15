@@ -1,5 +1,13 @@
 # Testing Grounds
 
+## Pass or Replace
+
+<img src=https://github.com/lefth-nd/t3-test/assets/74050386/2830dcd1-b733-40f6-b6ae-3c76bfd18163 width="480" />
+
+### TODO:
+
+- [ ] get sessions to work
+
 ## GPA Calculator
 
 <img src=https://github.com/lefth-nd/t3-test/assets/74050386/f4c2bf79-7f6d-4102-ac5e-2531f49ec108 width="480" />
