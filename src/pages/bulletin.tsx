@@ -4,15 +4,20 @@
 import { api } from "~/utils/api";
 import Footer from "~/components/footer";
 import { createId } from "@paralleldrive/cuid2";
+import { useState } from "react";
 
 function Pass() {
-  console.log("pass...");
+  const id = window.localStorage.getItem("hello") as string;
+  window.localStorage.setItem(id, "passed");
+  window.location.href = window.location.href;
 }
 
 export default function Bulletin() {
+  let id: string;
+  const [doc, setDoc] = useState("my-10 w-96 text-center");
   if (typeof window !== "undefined") {
     if (!window.localStorage.getItem("hello")) {
-      const id = createId();
+      id = createId();
       window.localStorage.setItem("hello", id);
     }
   } else {
@@ -24,6 +29,8 @@ export default function Bulletin() {
     const text = document.getElementById("user-message") as HTMLInputElement;
     d.mutate({ text: text.value });
     window.location.href = window.location.href;
+    const id = window.localStorage.getItem("hello") as string;
+    window.localStorage.setItem(id, "replaced");
   }
 
   const wisdom_data = api.bulletin.view.useQuery();
@@ -37,6 +44,7 @@ export default function Bulletin() {
   let hours;
   let minutes;
   let fminutes;
+
   if (wisdom_update !== undefined) {
     const t = wisdom_update.getTime();
     const timeDif = now - t;
@@ -47,6 +55,8 @@ export default function Bulletin() {
     fminutes = Math.floor(minutes);
   }
 
+  // if id exists and id has passed -> set display of input to none and 12 hr timeout
+  // if id exists and id has replaced -> set display of input to none and 24 hr timeout
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#205bff] to-[#205baa] font-title text-white">
       <div className="m-5 text-[3rem] font-extrabold tracking-tight text-white">
@@ -67,7 +77,7 @@ export default function Bulletin() {
           <div className="my-12 text-center text-2xl">{wisdom}</div>
         </div>
       </div>
-      <div className="my-10 w-96 text-center">
+      <div id="input-container" className={doc}>
         <input
           id="user-message"
           className="w-100% h-12 rounded-lg bg-slate-200 px-6 text-lg font-bold text-black shadow-inner shadow-slate-950"
