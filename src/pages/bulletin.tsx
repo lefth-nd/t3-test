@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import {
   setIdValue,
   getIdValue,
-  setCookie,
   getCookie,
   initCookie,
   cookieInit,
