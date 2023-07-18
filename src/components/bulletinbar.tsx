@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import { setCookie } from "~/server/middleware";
 import { api } from "~/utils/api";
 
