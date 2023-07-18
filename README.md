@@ -6,7 +6,8 @@
 
 ### TODO:
 
-- [ ] get sessions to work
+- [x] get sessions to work (sessions kind of work, but users go incognito to avoid block)
+- [ ] handle sessions properly
 
 ## GPA Calculator
 
@@ -21,7 +22,7 @@ Relevant files: src/pages/calculator.tsx, src/components/topic.tsx
 - [ ] handle the array such that an empty topic doesn't need to be added at the end
 - [ ] allow for multiple topics to be added in bulk instead of one by one
 
-*how long till flinders is mad about the logo?*
+_how long till flinders is mad about the logo?_
 
 <img src=https://github.com/lefth-nd/t3-test/assets/74050386/d046fdf7-9701-4760-a7b8-0683bc079714 width="480" />
 
