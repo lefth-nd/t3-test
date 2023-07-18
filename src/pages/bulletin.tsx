@@ -56,6 +56,7 @@ export default function Bulletin() {
 
   // if id exists and id has passed -> set display of input to none and 12 hr timeout
   // if id exists and id has replaced -> set display of input to none and 24 hr timeout
+  // if now - cookie_time > 12 hr && cookie.value = passed then delete and refresh
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#205bff] to-[#205baa] font-title text-white">
       <div className="m-5 text-[3rem] font-extrabold tracking-tight text-white">
@@ -73,7 +74,9 @@ export default function Bulletin() {
       </div>
       <div className="flex">
         <div className="h-fit rounded-md border-2 border-solid border-white bg-black/10 px-12 text-white">
-          <div className="my-12 text-center text-2xl">{wisdom}</div>
+          <div className="my-12 text-center text-2xl">
+            {wisdom_data.data ? wisdom : "Loading post"}
+          </div>
         </div>
       </div>
       <Bulletinbar id={getIdValue()} doc={doc} />
