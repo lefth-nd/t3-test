@@ -7,8 +7,6 @@ import Footer from "~/components/footer";
 import { useState } from "react";
 
 function Pass() {
-  const id = window.localStorage.getItem("hello") as string;
-  window.localStorage.setItem(id, "passed");
   window.location.href = window.location.href;
 }
 
