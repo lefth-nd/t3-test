@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { api } from "~/utils/api";
 import Footer from "~/components/footer";
-import { createId } from "@paralleldrive/cuid2";
+// import { createId } from "@paralleldrive/cuid2";
 import { useState } from "react";
 
 function Pass() {
@@ -15,14 +15,6 @@ function Pass() {
 export default function Bulletin() {
   let id: string;
   const [doc, setDoc] = useState("my-10 w-96 text-center");
-  if (typeof window !== "undefined") {
-    if (!window.localStorage.getItem("hello")) {
-      id = createId();
-      window.localStorage.setItem("hello", id);
-    }
-  } else {
-    console.log("hi");
-  }
   const d = api.bulletin.getAll.useMutation();
 
   function Replace() {
