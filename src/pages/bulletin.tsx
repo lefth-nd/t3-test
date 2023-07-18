@@ -4,24 +4,34 @@
 import { api } from "~/utils/api";
 import Footer from "~/components/footer";
 // import { createId } from "@paralleldrive/cuid2";
-import { useState } from "react";
-
-function Pass() {
-  window.location.href = window.location.href;
-}
+import { useState, useEffect } from "react";
+import {
+  setIdValue,
+  getIdValue,
+  setCookie,
+  getCookie,
+  initCookie,
+  cookieInit,
+} from "~/server/middleware";
+import Bulletinbar from "~/components/bulletinbar";
 
 export default function Bulletin() {
-  let id: string;
+  let id: string | null = null;
+  // begin with doc visible
   const [doc, setDoc] = useState("my-10 w-96 text-center");
-  const d = api.bulletin.getAll.useMutation();
-
-  function Replace() {
-    const text = document.getElementById("user-message") as HTMLInputElement;
-    d.mutate({ text: text.value });
-    window.location.href = window.location.href;
-    const id = window.localStorage.getItem("hello") as string;
-    window.localStorage.setItem(id, "replaced");
-  }
+  // setDoc("hidden my-10 w-96 text-center");
+  useEffect(() => {
+    id = getIdValue();
+    if (!cookieInit()) {
+      id = setIdValue();
+      initCookie(id);
+    }
+    const cv = getCookie(getIdValue());
+    console.log(cv);
+    if (cv === "passed" || cv === "replaced") {
+      setDoc("hidden my-10 w-96 text-center");
+    }
+  }, []);
 
   const wisdom_data = api.bulletin.view.useQuery();
   const wisdom = wisdom_data.data?.contents as string;
@@ -67,28 +77,7 @@ export default function Bulletin() {
           <div className="my-12 text-center text-2xl">{wisdom}</div>
         </div>
       </div>
-      <div id="input-container" className={doc}>
-        <input
-          id="user-message"
-          className="w-100% h-12 rounded-lg bg-slate-200 px-6 text-lg font-bold text-black shadow-inner shadow-slate-950"
-          placeholder=""
-          title="your message"
-          maxLength={120}
-        ></input>
-        <button
-          onClick={Pass}
-          className="ml-4 mt-4 h-12 w-24 rounded-full bg-gray-200 font-bold uppercase text-black shadow-md transition-colors duration-100 hover:bg-slate-300"
-        >
-          pass
-        </button>
-        <button
-          onClick={Replace}
-          id="replace-button"
-          className="ml-4 mt-4 h-12 w-24 rounded-full bg-slate-900 font-bold uppercase shadow-md transition-colors duration-100 hover:bg-slate-800"
-        >
-          replace
-        </button>
-      </div>
+      <Bulletinbar id={getIdValue()} doc={doc} />
       <Footer />
     </div>
   );
