@@ -7,7 +7,7 @@
 ### TODO:
 
 - [x] get sessions to work (sessions kind of work, but users go incognito to avoid block)
-- [ ] handle sessions properly
+- [ ] handle sessions properly.
 
 ## GPA Calculator
 
