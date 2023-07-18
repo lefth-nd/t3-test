@@ -22,7 +22,7 @@ Relevant files: src/pages/calculator.tsx, src/components/topic.tsx
 - [ ] handle the array such that an empty topic doesn't need to be added at the end
 - [ ] allow for multiple topics to be added in bulk instead of one by one
 
-_how long till flinders is mad about the logo?_
+_how long till flinders is mad about my paint logo?_
 
 <img src=https://github.com/lefth-nd/t3-test/assets/74050386/d046fdf7-9701-4760-a7b8-0683bc079714 width="480" />
 
