@@ -18,6 +18,10 @@ const Face = () => {
     console.log(newb64png);
   }, [newb64png]);
 
+  const refresh = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#252525] to-[#000000] text-center">
       <div className="rounded-lg  bg-lime-900 p-20">
@@ -29,16 +33,22 @@ const Face = () => {
           <div className="">
             <div className="h-20 rounded-t-2xl bg-lime-300"></div>
             <div className="absolute">
+              <button
+                onClick={refresh}
+                className="relative -right-52 -top-4 rounded-md bg-green-600 px-4 py-1 text-[1rem] font-normal duration-500 hover:bg-green-800"
+              >
+                Refresh Page
+              </button>
               {b64png ? (
                 <img
-                  className="relative bottom-12 ml-5 overflow-hidden rounded-full border-8 border-zinc-800"
+                  className="relative bottom-36 ml-5 overflow-hidden rounded-full border-8 border-zinc-800"
                   src={b64png}
                   alt="Base64 PNG"
                 />
               ) : (
                 <div className="text-[2rem]">Loading...</div>
               )}
-              <div className="relative -top-20 left-[114px] h-6 w-6 rounded-full border-4 border-zinc-900 bg-green-500"></div>
+              <div className="relative -top-44 left-[114px] h-6 w-6 rounded-full border-4 border-zinc-900 bg-green-500"></div>
             </div>
             <div className="h-60 rounded-b-2xl bg-zinc-800 text-zinc-800">
               Secret
