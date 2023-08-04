@@ -1,17 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { api } from "~/utils/api";
 import { useState } from "react";
 import Footer from "~/components/footer";
 import html2canvas from "html2canvas";
+import Image from "next/image";
 
 const Face = () => {
   const [b64png, setSvg] = useState("");
   const [png, setUrlDownload] = useState("");
   const d = api.facegen.generateFace.useQuery();
 
+  const dRef = React.useRef();
+
   React.useEffect(() => {
-    if (d.data) {
+    if (dRef.current !== undefined && d.data) {
       const svg = d.data;
       setSvg(svg);
 
@@ -37,7 +39,8 @@ const Face = () => {
         }
       })();
     }
-  }, [d.data]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const refresh = () => {
     window.location.reload();
@@ -76,7 +79,14 @@ const Face = () => {
               >
                 {b64png ? (
                   //change to <Image/>
-                  <img id="pfp" className="" src={b64png} alt="Base64 PNG" />
+                  <Image
+                    id="pfp"
+                    className=""
+                    src={b64png}
+                    alt="Base64 SVG/PNG profile picture"
+                    width={120}
+                    height={120}
+                  ></Image>
                 ) : (
                   <div className="text-[1rem]">Loading...</div>
                 )}
