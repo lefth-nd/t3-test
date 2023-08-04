@@ -11,20 +11,30 @@ const Face = () => {
   const d = api.facegen.generateFace.useQuery();
   useEffect(() => {
     if (d.data) {
-      const image = new Image();
       const svg = d.data;
-
       setSvg(svg);
-      image.src = svg;
-      image.onload = async () => {
+
+      void (async () => {
         try {
-          const canvas = await html2canvas(image, { useCORS: true });
+          const svgContain = document.createElement("div");
+          svgContain.style.width = "120px";
+          svgContain.style.height = "120px";
+          const tempData = svg.replace(/^data:image\/svg\+xml;base64,/, "");
+          svgContain.innerHTML = Buffer.from(tempData, "base64").toString(
+            "utf-8"
+          );
+          document.body.appendChild(svgContain);
+          const canvas = await html2canvas(svgContain);
+          console.log(canvas);
           const pngUrl = canvas.toDataURL("image/png");
+          console.log("Canvas dimensions:", canvas.width, canvas.height);
+          console.log(pngUrl);
           setUrlDownload(pngUrl);
+          document.body.removeChild(svgContain);
         } catch (error) {
-          console.log();
+          console.log(error);
         }
-      };
+      })();
     }
   }, [d.data]);
 
@@ -33,7 +43,7 @@ const Face = () => {
   };
 
   const download = () => {
-    if (b64png) {
+    if (png) {
       const a = document.createElement("a");
       a.href = png;
       console.log(png);
