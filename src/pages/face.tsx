@@ -73,8 +73,11 @@ const Face = () => {
               </button>
               <button
                 onClick={download}
-                className="relative bottom-16 -ml-28 overflow-hidden rounded-full border-8 border-zinc-800 duration-300 hover:grayscale hover:filter"
+                className="relative bottom-16 -ml-28 overflow-hidden rounded-full border-8 border-zinc-800 text-transparent duration-300 hover:text-white hover:grayscale hover:filter"
               >
+                <span className="absolute right-[25px] top-12 text-[1rem]">
+                  save png
+                </span>
                 {b64png ? (
                   <Image
                     id="pfp"
