@@ -10,7 +10,7 @@ const Face = () => {
   const [png, setUrlDownload] = useState("");
   const d = api.facegen.generateFace.useQuery();
 
-  const dRef = React.useRef();
+  const dRef = React.useRef(d);
 
   React.useEffect(() => {
     if (dRef.current !== undefined && d.data) {
