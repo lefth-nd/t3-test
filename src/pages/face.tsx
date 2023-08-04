@@ -3,23 +3,43 @@ import React from "react";
 import { api } from "~/utils/api";
 import { useState, useEffect } from "react";
 import Footer from "~/components/footer";
+import html2canvas from "html2canvas";
 
 const Face = () => {
-  const [b64png, setPng] = useState("");
-  let newb64png = "";
-  if (typeof window !== "undefined") {
-    document.getElementById("face");
-    const d = api.facegen.generateFace.useQuery();
-    if (typeof d.data !== "undefined") newb64png = d.data;
-  }
-
+  const [b64png, setSvg] = useState("");
+  const [png, setUrlDownload] = useState("");
+  const d = api.facegen.generateFace.useQuery();
   useEffect(() => {
-    setPng(newb64png);
-    console.log(newb64png);
-  }, [newb64png]);
+    if (d.data) {
+      const image = new Image();
+      const svg = d.data;
+
+      setSvg(svg);
+      image.src = svg;
+      image.onload = async () => {
+        try {
+          const canvas = await html2canvas(image, { useCORS: true });
+          const pngUrl = canvas.toDataURL("image/png");
+          setUrlDownload(pngUrl);
+        } catch (error) {
+          console.log();
+        }
+      };
+    }
+  }, [d.data]);
 
   const refresh = () => {
     window.location.reload();
+  };
+
+  const download = () => {
+    if (b64png) {
+      const a = document.createElement("a");
+      a.href = png;
+      console.log(png);
+      a.download = "super_cool_svg_generated_profile.png";
+      a.click();
+    }
   };
 
   return (
@@ -35,26 +55,27 @@ const Face = () => {
             <div className="absolute">
               <button
                 onClick={refresh}
-                className="relative -right-52 -top-4 rounded-md bg-green-600 px-4 py-1 text-[1rem] font-normal duration-500 hover:bg-green-800"
+                className="relative -right-52 -top-16 rounded-sm bg-green-600 px-4 py-1 text-[1rem] font-semibold duration-500 hover:bg-green-800"
               >
                 Refresh Page
               </button>
-              {b64png ? (
-                <img
-                  className="relative bottom-36 ml-5 overflow-hidden rounded-full border-8 border-zinc-800"
-                  src={b64png}
-                  alt="Base64 PNG"
-                />
-              ) : (
-                <div className="text-[2rem]">Loading...</div>
-              )}
-              <div className="relative -top-44 left-[114px] h-6 w-6 rounded-full border-4 border-zinc-900 bg-green-500"></div>
+              <button
+                onClick={download}
+                className="relative bottom-16 -ml-28 overflow-hidden rounded-full border-8 border-zinc-800 duration-300 hover:grayscale hover:filter"
+              >
+                {b64png ? (
+                  <img id="pfp" className="" src={b64png} alt="Base64 PNG" />
+                ) : (
+                  <div className="text-[1rem]">Loading...</div>
+                )}
+              </button>
+              <div className="relative -top-28 left-[114px] h-6 w-6 rounded-full border-4 border-zinc-900 bg-green-500"></div>
             </div>
             <div className="h-60 rounded-b-2xl bg-zinc-800 text-zinc-800">
               Secret
               <div className="mx-4 h-32 rounded-lg bg-zinc-900">
-                <div className="mx-6 py-4 text-left text-[1.1rem] font-semibold tracking-normal text-white">
-                  U...
+                <div className="mx-6 py-4 text-left text-[1rem] font-semibold tracking-normal text-white">
+                  Click pfp to download...
                 </div>
                 <div className="mx-6 grid grid-flow-col gap-8 border-b-[1px] border-gray-400">
                   <div className="border-b-2 border-white pb-4 text-left text-[0.90rem] font-medium tracking-normal text-white">
