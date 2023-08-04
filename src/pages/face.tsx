@@ -88,7 +88,9 @@ const Face = () => {
                     height={120}
                   ></Image>
                 ) : (
-                  <div className="text-[1rem]">Loading...</div>
+                  <div className="m-10 h-10 w-12 text-justify text-[1rem] text-white">
+                    Loading profile pic...
+                  </div>
                 )}
               </button>
               <div className="relative -top-28 left-[114px] h-6 w-6 rounded-full border-4 border-zinc-900 bg-green-500"></div>
