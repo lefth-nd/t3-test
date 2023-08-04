@@ -9,6 +9,9 @@
 - [x] get sessions to work (sessions kind of work, but users go incognito to avoid block)
 - [ ] handle sessions properly.
 
+**Possible future feature:**  
+Decision should expire after some amount of hours to allow for a decision streak to occur for passing. Each pass nets +1 to the streak. After a certain threshold of passes, a badge is awarded.
+
 ## GPA Calculator
 
 <img src=https://github.com/lefth-nd/t3-test/assets/74050386/f4c2bf79-7f6d-4102-ac5e-2531f49ec108 width="480" />
