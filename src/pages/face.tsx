@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { api } from "~/utils/api";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import Footer from "~/components/footer";
 
