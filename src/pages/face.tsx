@@ -78,7 +78,6 @@ const Face = () => {
                 className="relative bottom-16 -ml-28 overflow-hidden rounded-full border-8 border-zinc-800 duration-300 hover:grayscale hover:filter"
               >
                 {b64png ? (
-                  //change to <Image/>
                   <Image
                     id="pfp"
                     className=""
