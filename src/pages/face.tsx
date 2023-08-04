@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { api } from "~/utils/api";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Footer from "~/components/footer";
 import html2canvas from "html2canvas";
 
@@ -9,7 +9,8 @@ const Face = () => {
   const [b64png, setSvg] = useState("");
   const [png, setUrlDownload] = useState("");
   const d = api.facegen.generateFace.useQuery();
-  useEffect(() => {
+
+  React.useEffect(() => {
     if (d.data) {
       const svg = d.data;
       setSvg(svg);
@@ -74,6 +75,7 @@ const Face = () => {
                 className="relative bottom-16 -ml-28 overflow-hidden rounded-full border-8 border-zinc-800 duration-300 hover:grayscale hover:filter"
               >
                 {b64png ? (
+                  //change to <Image/>
                   <img id="pfp" className="" src={b64png} alt="Base64 PNG" />
                 ) : (
                   <div className="text-[1rem]">Loading...</div>
