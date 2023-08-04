@@ -22,7 +22,7 @@ const Face = () => {
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#252525] to-[#000000] text-center">
       <div className="rounded-lg  bg-lime-900 p-20">
         <div className="text-[4rem] font-bold tracking-tight text-lime-100">
-          Face Me!
+          Face <span className="text-lime-400">Me!</span>
           <div className="m-10 text-[1rem] font-normal tracking-wide">
             here&apos;s a cool new discord pfp for you...
           </div>
