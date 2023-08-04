@@ -10,10 +10,8 @@ const Face = () => {
   const [png, setUrlDownload] = useState("");
   const d = api.facegen.generateFace.useQuery();
 
-  const dRef = React.useRef(d);
-
   React.useEffect(() => {
-    if (dRef.current !== undefined && d.data) {
+    if (d.data) {
       const svg = d.data;
       setSvg(svg);
 
@@ -40,7 +38,7 @@ const Face = () => {
       })();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [d.data]);
 
   const refresh = () => {
     window.location.reload();
