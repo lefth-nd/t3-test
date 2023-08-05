@@ -61,11 +61,11 @@ function manipulateFace() {
     faceCircle.setAttribute("fill", randomColorD);
     faceCircle.setAttribute("r", rr.toString());
 
-    const randomX1 = getRandomInt(20, 180);
-    const randomY1 = getRandomInt(100, 140);
-    const randomX2 = getRandomInt(100, 120);
-    const randomY2 = getRandomInt(100, 160);
-    const randomQ = getRandomInt(70, 100);
+    const randomX1 = getRandomInt(50, 90);
+    const randomY1 = getRandomInt(120, 120);
+    const randomX2 = getRandomInt(120, 180);
+    const randomY2 = getRandomInt(120, 180);
+    const randomQ = getRandomInt(60, 120);
     const innerMouth = "#" + Math.floor(Math.random() * 16777215).toString(16);
     const mouthPath =
       "M" +
@@ -80,6 +80,7 @@ function manipulateFace() {
       randomX2.toString() +
       " " +
       randomY1.toString();
+
     mouth.setAttribute("d", mouthPath);
     mouth.setAttribute("fill", innerMouth.toString());
   }
