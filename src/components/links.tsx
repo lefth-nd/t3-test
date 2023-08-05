@@ -69,7 +69,7 @@ export const Links = () => {
             <Image
               className="rounded-full border-2 border-slate-700 shadow-black grayscale filter hover:border-white hover:shadow-lg hover:filter-none"
               alt="face-me"
-              src="/f.png"
+              src="/g.png"
               width={220}
               height={220}
             ></Image>
