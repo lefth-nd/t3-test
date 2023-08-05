@@ -14,7 +14,6 @@ const Face = () => {
     if (d.data) {
       const svg = d.data;
       setSvg(svg);
-
       void (async () => {
         try {
           const svgContain = document.createElement("div");

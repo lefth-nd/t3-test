@@ -5,14 +5,19 @@ const svgCode = `<svg id="face" xmlns="http://www.w3.org/2000/svg" width="120" h
 	  <circle id="face-path" d=""  />
     <circle id="left-eye" cx="75" cy="80" r="10" fill="black" />
     <circle id="right-eye" cx="125" cy="80" r="10" fill="black" />
-    <path id="mouth" d="M70 130 Q100 160 130 130" fill="transparent" stroke="black" strokeWidth="3" />
+    <path id="mouth" d="M70 130 Q100 160 130 130" fill="black" stroke="black" strokeWidth="3" />
   </svg> `;
+
 const dom = new JSDOM(svgCode);
 const document = dom.window.document;
 
 function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+const getRandomElement = (arr: string[]) => {
+  arr.length ? arr[Math.floor(Math.random() * arr.length)] : undefined;
+};
 
 function manipulateFace() {
   const faceElement = document.getElementById("face");
@@ -35,14 +40,15 @@ function manipulateFace() {
     const randomColorB =
       "#" + Math.floor(Math.random() * 16777215).toString(16);
     rightEye.setAttribute("fill", randomColorB);
-    const eyeSize = getRandomInt(10, 25);
-    leftEye.setAttribute("r", eyeSize.toString());
-    rightEye.setAttribute("r", eyeSize.toString());
+    const eyeSizeL = getRandomInt(10, 25);
+    const eyeSizeR = getRandomInt(10, 25);
+    leftEye.setAttribute("r", eyeSizeL.toString());
+    rightEye.setAttribute("r", eyeSizeR.toString());
 
     const randomColorC =
       "#" + Math.floor(Math.random() * 16777215).toString(16);
     mouth.setAttribute("stroke", randomColorC);
-    const size = getRandomInt(2, 20);
+    const size = getRandomInt(2, 30);
     mouth.setAttribute("stroke-width", size.toString());
 
     const rx = getRandomInt(60, 200);
@@ -55,22 +61,27 @@ function manipulateFace() {
     faceCircle.setAttribute("fill", randomColorD);
     faceCircle.setAttribute("r", rr.toString());
 
-    const randomX1 = getRandomInt(60, 80);
-    const randomY1 = getRandomInt(120, 140);
+    const randomX1 = getRandomInt(20, 180);
+    const randomY1 = getRandomInt(100, 140);
     const randomX2 = getRandomInt(100, 120);
-    const randomY2 = getRandomInt(140, 160);
+    const randomY2 = getRandomInt(100, 160);
+    const randomQ = getRandomInt(70, 100);
+    const innerMouth = "#" + Math.floor(Math.random() * 16777215).toString(16);
     const mouthPath =
       "M" +
       randomX1.toString() +
       " " +
       randomY1.toString() +
-      " Q100 " +
+      " Q" +
+      randomQ.toString() +
+      " " +
       randomY2.toString() +
       " " +
       randomX2.toString() +
       " " +
       randomY1.toString();
     mouth.setAttribute("d", mouthPath);
+    mouth.setAttribute("fill", innerMouth.toString());
   }
 }
 
