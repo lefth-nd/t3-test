@@ -26,7 +26,13 @@ export default function MainMenu() {
         <Links />
       </div>
       <div className="absolute bottom-2 text-slate-500">
-        Created by: Jay (lefth-nd)
+        Created by: Jay{" "}
+        <a
+          href="https://github.com/lefth-nd"
+          className="text-slate-500 hover:text-white"
+        >
+          (lefth-nd)
+        </a>
       </div>
     </main>
   );
