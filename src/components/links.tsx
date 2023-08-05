@@ -64,6 +64,17 @@ export const Links = () => {
             ></Image>
           </Link>
         </div>
+        <div className="grid-flow-row-dense gap-2">
+          <Link href="/face" className="hover:underline">
+            <Image
+              className="rounded-full border-2 border-slate-700 shadow-black grayscale filter hover:border-white hover:shadow-lg hover:filter-none"
+              alt="face-me"
+              src="/f.png"
+              width={220}
+              height={220}
+            ></Image>
+          </Link>
+        </div>
       </div>
     </div>
   );

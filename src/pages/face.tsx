@@ -53,6 +53,24 @@ const Face = () => {
     }
   };
 
+  const imageLoad = {
+    key1: () => (
+      <Image
+        id="pfp"
+        className=""
+        src={b64png}
+        alt="Base64 SVG/PNG profile picture"
+        width={120}
+        height={120}
+      ></Image>
+    ),
+    key2: () => (
+      <div className="m-10 h-10 w-12 text-justify text-[1rem] text-white">
+        Loading profile pic...
+      </div>
+    ),
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#252525] to-[#000000] text-center">
       <div className="rounded-lg  bg-lime-900 p-20">
